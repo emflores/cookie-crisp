@@ -1,7 +1,7 @@
 {
   "name": "cookie-cutter",
   "description": "Browserify-compatible module to get and set cookies in the browser",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/mfloreszona3/cookie-cutter.git"
@@ -18,8 +18,7 @@
     "email": "mail@substack.net",
     "url": "http://substack.net"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "mocha": "~1.21.4",
     "should": "~4.0.4",
