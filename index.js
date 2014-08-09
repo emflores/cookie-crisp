@@ -1,7 +1,6 @@
 var _isUndefined    = require( 'lodash-node/compat/objects/isUndefined' );
 var _isString       = require( 'lodash-node/compat/objects/isString' );
 var _isObject       = require( 'lodash-node/compat/objects/isObject' );
-var _isNumber       = require( 'lodash-node/compat/objects/isNumber' );
 
 // Constants
 var COOKIE_DELIMITER_RE = /;\s*/;
@@ -73,7 +72,7 @@ var set = function ( key, value, opts ) {
 
     if ( DAYS_RE.test( opts.expires ) ) {
         newCookie += '; expires=' + getDate( opts.expires.match( DAYS_RE )[ 1 ] );
-    } else if ( _isNumber( opts.expires ) ) {
+    } else if ( !_isUndefined( opts.expires ) ) {
         newCookie += '; expires=' + opts.expires;
     }
 
@@ -83,7 +82,16 @@ var set = function ( key, value, opts ) {
 };
 
 /**
- * Initializes cookie cutter
+ * Removes cookie
+ * @param  {string} cookieName      Key of cookie to be removed
+ * @return {string}                 New cookie value
+ */
+var remove = function ( cookieName ) {
+    return this.set( cookieName, '', { expires: 'Thu, 01 Jan 1970 00:00:01 GMT' } );
+};
+
+/**
+ * Initializes cookie crisp
  * @param  {object}     doc     Reference to window.document
  */
 var init = function ( doc ) {
@@ -98,9 +106,19 @@ var init = function ( doc ) {
     this.doc = doc;
 };
 
+/**
+ * Exports object for cookie crisp
+ * @type {Object}
+ *
+ * @example
+ *
+ * cookieCrisp.init( window.document );
+ * cookieCrisp.set( 'key', 'value', { expires: '21 days' } );
+ */
 module.exports = {
     doc: null,
     init: init,
     get: get,
-    set: set
+    set: set,
+    remove: remove
 };
