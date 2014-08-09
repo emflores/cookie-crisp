@@ -1,10 +1,10 @@
 {
-  "name": "cookie-cutter",
-  "description": "Browserify-compatible module to get and set cookies in the browser",
-  "version": "0.1.2",
+  "name": "cookie-crisp",
+  "description": "Get and set browser cookies",
+  "version": "1.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/substack/cookie-cutter.git"
+    "url": "git://github.com/mfloreszona3/cookie-crisp.git"
   },
   "main": "index.js",
   "keywords": [
@@ -13,10 +13,7 @@
     "browserify"
   ],
   "license": "MIT",
-  "contributors": [
-    "James Halliday <mail@substack.net> (http://substack.net)",
-    "Michael Flores <flores.michael@gmail.com>"
-  ],
+  "author": "Michael Flores <flores.michael@gmail.com>",
   "devDependencies": {
     "mocha": "~1.21.4",
     "should": "~4.0.4",
