@@ -6,7 +6,6 @@ var _isObject       = require( 'lodash-node/compat/objects/isObject' );
 var COOKIE_DELIMITER_RE = /;\s*/;
 var KEY_VALUE_DELIMITER = '=';
 var DEFAULT_PATH        = '/';
-var DAYS_RE             = /([0-9]+)\s+day/;
 
 /**
  * Gets current date + n days in seconds since
@@ -16,7 +15,7 @@ var DAYS_RE             = /([0-9]+)\s+day/;
 var getDate = function ( days ) {
     var parsedDays = parseInt( days, 10 );
     var date = new Date();
-    return date.setTime( date.getTime() + ( days * 24 * 60 * 60 * 1000 ) );
+    return new Date( date.getTime() + ( days * 24 * 60 * 60 * 1000 ) );
 };
 
 /**
@@ -48,13 +47,10 @@ var get = function ( cookieName ) {
  * @param   {string|number|boolean}   value             New value for cookie
  * @param   {object}                  [opts]            Options object
  * @param   {string}                  [opts.path]       Path to write cookie (write to root domain by default)
- * @param   {number|string}           [opts.expires]    Expiration for cookie
+ * @param   {string}                  [opts.expires]    GMT expiration date
+ * @param   {number}                  [opts.days]       Number of days for a cookie to expire in
  * @returns {string}                                    New cookie value
  *
- * @example
- * Expiration argument can be either a number (you do the math yourself) or a string in one of the following forms:
- *      '11 days'
- *      '1 day'
  */
 var set = function ( key, value, opts ) {
     if ( !_isString( key ) ) {
@@ -65,13 +61,13 @@ var set = function ( key, value, opts ) {
         throw new TypeError( 'value must be defined and cannot be an object' );
     }
 
-    opts = opts || {};
+    opts      = opts || {};
     opts.path = _isString( opts.path ) ? opts.path : DEFAULT_PATH;
 
     var newCookie = encodeURIComponent( key ) + '=' + encodeURIComponent( value );
 
-    if ( DAYS_RE.test( opts.expires ) ) {
-        newCookie += '; expires=' + getDate( opts.expires.match( DAYS_RE )[ 1 ] );
+    if ( !_isUndefined( opts.days ) ) {
+        newCookie += '; expires=' + getDate( opts.days ).toGMTString();
     } else if ( !_isUndefined( opts.expires ) ) {
         newCookie += '; expires=' + opts.expires;
     }
