@@ -1,5 +1,6 @@
-#cookie-crisp
-`Cookie Crisp, a small cookie utility for getting, setting, and deleting cookies`
+#Cookie Crisp
+
+`A small cookie utility for getting, setting, and deleting cookies`
 
 ## init( doc )
 Initializes cookie-crisp. Can optionally pass in a reference to `document` that differs from `window.document`.
