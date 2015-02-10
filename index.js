@@ -32,10 +32,10 @@ function passThrough ( val ) {
 /**
  * Given an array of cookie key/value pairs, returns the value
  * that matches the provided key.
- * @param  {array}  cookieArray  Array of cookie key/value pairs
- * @param  {[type]} cookieName   Key to be looked up
- * @param  {[type]} decode       Whether or not the cookie should be decoded before
- *                               being returned
+ * @param  {array}   cookieArray  Array of cookie key/value pairs
+ * @param  {string}  cookieName   Key to be looked up
+ * @param  {boolean} decode       Whether or not the cookie should be decoded before
+ *                                being returned
  * @return {string}
  */
 function getCookie ( cookieArray, cookieName, decode ) {
@@ -92,6 +92,7 @@ function get ( cookieName, decode ) {
  * @param   {string}                  [opts.path]       Path to write cookie (write to root domain by default)
  * @param   {string}                  [opts.expires]    GMT expiration date
  * @param   {number}                  [opts.days]       Number of days for a cookie to expire in
+ * @param   {encode}                  [opts.encode]     Whether or not the cookie key/value should be encoded
  * @returns {string}                                    New cookie value
  *
  */
