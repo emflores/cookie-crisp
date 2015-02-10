@@ -120,7 +120,7 @@ function set ( key, value, opts ) {
         newCookie += '; expires=' + opts.expires;
     }
 
-    newCookie += '; path=' + encodeURIComponent( opts.path );
+    newCookie += '; path=' + opts.path;
     this.doc.cookie = newCookie;
     return newCookie;
 }
