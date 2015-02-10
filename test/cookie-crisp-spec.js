@@ -37,7 +37,7 @@ describe( 'Cookie Cutter', function () {
         it( 'throws an error if the cookie name argument is not a string', function () {
             var COOKIE_NAME_TYPE_ERROR = 'cookieName argument is required and must be a string';
             initCookieCrisp( 'foo=bar' );
-            
+
             cookieCrisp.get.bind( null, 1 ).should.throw( COOKIE_NAME_TYPE_ERROR );
             cookieCrisp.get.bind( null, [] ).should.throw( COOKIE_NAME_TYPE_ERROR );
             cookieCrisp.get.bind( null, function () {} ).should.throw( COOKIE_NAME_TYPE_ERROR );
@@ -51,7 +51,7 @@ describe( 'Cookie Cutter', function () {
         it( 'throws an error if the key argument is not a string', function () {
             var KEY_TYPE_ERROR = 'key argument is required and must be a string';
             initCookieCrisp( 'foo=bar' );
-            
+
             cookieCrisp.set.bind( null, 1, 'baz' ).should.throw( KEY_TYPE_ERROR );
             cookieCrisp.set.bind( null, [], 'baz' ).should.throw( KEY_TYPE_ERROR );
             cookieCrisp.set.bind( null, function () {}, 'baz' ).should.throw( KEY_TYPE_ERROR );
@@ -63,7 +63,7 @@ describe( 'Cookie Cutter', function () {
         it( 'throws an error if the value argument is undefined or an object', function () {
             var VALUE_TYPE_ERROR = 'value must be defined and cannot be an object';
             initCookieCrisp( 'foo=bar' );
-            
+
             cookieCrisp.set.bind( null, 'foo', {} ).should.throw( VALUE_TYPE_ERROR );
             cookieCrisp.set.bind( null, 'foo', undefined ).should.throw( VALUE_TYPE_ERROR );
         });
