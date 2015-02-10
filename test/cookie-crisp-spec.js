@@ -17,7 +17,7 @@ describe( 'Cookie Cutter', function () {
         it( 'removes a cookie given a valid name', function () {
             initCookieCrisp( 'foo=bar' );
             var result = cookieCrisp.remove( 'foo' );
-            result.should.equal( 'foo=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=%2F' );
+            result.should.equal( 'foo=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/' );
         });
     });
 
@@ -71,20 +71,20 @@ describe( 'Cookie Cutter', function () {
         it( 'creates a cookie with a default path of "/" given a valid key/value and no path argument', function () {
             initCookieCrisp( 'foo=bar' );
             var result = cookieCrisp.set( 'foo', 'baz' );
-            result.should.equal( 'foo=baz; path=%2F' );
+            result.should.equal( 'foo=baz; path=/' );
         });
 
         it( 'creates a cookie with a customized path with the path option is present', function () {
             initCookieCrisp( 'foo=bar' );
             var result = cookieCrisp.set( 'foo', 'baz', { path: '/bat' } );
-            result.should.equal( 'foo=baz; path=%2Fbat' );
+            result.should.equal( 'foo=baz; path=/bat' );
         });
 
         it( 'creates a cookie with a expiration parameter and default path if the expires option is an object', function () {
             initCookieCrisp( 'foo=bar' );
             var dateToSet = new Date();
             var result = cookieCrisp.set( 'foo', 'baz', { expires: dateToSet.toGMTString() } );
-            result.should.equal( 'foo=baz; expires=' + dateToSet.toGMTString() + '; path=%2F' );
+            result.should.equal( 'foo=baz; expires=' + dateToSet.toGMTString() + '; path=/' );
         });
 
         it( 'creates a cookie with an expiration parameter and default path if the days option is set and path is undefined', function () {
@@ -93,7 +93,7 @@ describe( 'Cookie Cutter', function () {
             var tomorrow = new Date( today.getTime() + ( 1 * 24 * 60 * 60 * 1000 ) );
             var day = tomorrow.getUTCDate();
             var month = MONTHS[ tomorrow.getUTCMonth() ];
-            var validCookie = new RegExp( 'foo=baz; expires=.*' + day + ' ' + month + '.*; path=%2F', 'i' );
+            var validCookie = new RegExp( 'foo=baz; expires=.*' + day + ' ' + month + '.*; path=/', 'i' );
             var result = cookieCrisp.set( 'foo', 'baz', { days: 1 } );
             validCookie.test( result ).should.be.true;
         });
