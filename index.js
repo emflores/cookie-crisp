@@ -1,7 +1,7 @@
-var _isUndefined = require( 'lodash-node/compat/objects/isUndefined' );
-var _isString    = require( 'lodash-node/compat/objects/isString' );
-var _isObject    = require( 'lodash-node/compat/objects/isObject' );
-var _find        = require( 'lodash-node/compat/collections/find' );
+var _isUndefined = require( 'lodash-node/compat/lang/isUndefined' );
+var _isString    = require( 'lodash-node/compat/lang/isString' );
+var _isObject    = require( 'lodash-node/compat/lang/isObject' );
+var _find        = require( 'lodash-node/compat/collection/find' );
 
 // Constants
 var COOKIE_DELIMITER_RE = /;\s*/;

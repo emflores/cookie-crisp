@@ -17,6 +17,6 @@
   "devDependencies": {
     "mocha": "~1.21.4",
     "should": "~4.0.4",
-    "lodash-node": "~2.4.1"
+    "lodash-node": "~3.1.0"
   }
 }
