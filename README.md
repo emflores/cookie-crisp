@@ -1,6 +1,5 @@
-#Cookie Crisp
-
-`A small cookie utility for getting, setting, and deleting cookies`
+# Cookie Crisp [![NPM version](https://badge.fury.io/js/cookie-crisp.png)](https://www.npmjs.com/package/cookie-crisp)
+> A small cookie utility for getting, setting, and deleting cookies
 
 ## init( doc )
 Initializes cookie-crisp. Can optionally pass in a reference to `document` that differs from `window.document`.
