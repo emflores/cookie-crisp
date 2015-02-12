@@ -1,7 +1,7 @@
 {
   "name": "cookie-crisp",
   "description": "Get and set browser cookies",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "repository": {
     "type": "git",
     "url": "git://github.com/emflores/cookie-crisp.git"
